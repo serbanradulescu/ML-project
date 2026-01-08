@@ -82,6 +82,40 @@ The notebook trains and compares multiple regression models:
 - Gradient Boosting
 - K-Nearest Neighbors
 
+## Results
+
+### Model Comparison
+
+**Metrics:**
+- **MAE** (Mean Absolute Error): Average prediction error in BBCH units. Lower is better.
+- **RMSE** (Root Mean Square Error): Like MAE but penalizes large errors more. Lower is better.
+- **R²** (Coefficient of Determination): Proportion of variance explained by the model. Higher is better (max 1.0).
+
+| Model | MAE | RMSE | R² |
+|-------|-----|------|-----|
+| Linear Regression | 3.45 | 4.59 | 0.969 |
+| **Random Forest** | **1.91** | 3.84 | 0.979 |
+| Gradient Boosting | 2.16 | **3.49** | **0.982** |
+| K-Nearest Neighbors | 2.21 | 3.82 | 0.979 |
+
+**Best Model: Random Forest** (lowest MAE of 1.91 BBCH units)
+
+All models achieved R² > 0.96, indicating that Growing Degree Days is a strong predictor of BBCH stage. Random Forest achieved the lowest Mean Absolute Error, while Gradient Boosting had the highest R² (0.982).
+
+### GDD Thresholds by BBCH Stage
+
+| BBCH | Stage | GDD (°C·days) |
+|------|-------|---------------|
+| 10 | Emergence | 99 ± 27 |
+| 12 | Two leaves unfolded | 179 ± 38 |
+| 21 | Beginning of tillering | 304 ± 46 |
+| 31 | Beginning of stem elongation | 541 ± 67 |
+| 41 | Flag leaf sheath extending | 751 ± 79 |
+| 51 | Beginning of heading | 939 ± 86 |
+| 61 | Beginning of flowering | 1104 ± 97 |
+| 75 | Medium milk ripening | 1399 ± 117 |
+| 87 | Hard dough | 1699 ± 149 |
+
 ## Output
 
 After running the notebook:
